@@ -16,7 +16,7 @@ const Login = () => {
   return (
   <div className='mt-5 w-full text-center'>
     <h1 className='text-4xl font-bold tracking-wide text-green-600 mb-10 text-center'>User Login</h1>
-    <form onSubmit={handleSubmit(loginHandler)} className='flex flex-col gap-10 w-1/2  py-15 mx-auto bg-amber-100 rounded-xl shadow-xl'>
+    <form onSubmit={handleSubmit(loginHandler)} className='flex flex-col gap-6 w-1/2  py-10 mx-auto bg-red-100 rounded-xl shadow-xl'>
     <div className='flex gap-6 justify-center items-center'>
     <label className='text-xl '>Username :</label>
 <input
