@@ -1,15 +1,21 @@
 import { nanoid } from 'nanoid'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import asyncRegisterUser from '../features/actions/userAction'
+import { toast } from 'react-toastify'
 
 const Register = () => {
     const {register, reset, handleSubmit} = useForm()
 
+    const dispatch = useDispatch();
+
     const registerHandler = (data) => {
  data.id = nanoid();
  console.log(data);
- 
+  dispatch(asyncRegisterUser(data))
+ toast.success(`${data.username} registered successfully !`)
  reset()
     }
 
