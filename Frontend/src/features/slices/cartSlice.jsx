@@ -8,7 +8,7 @@ const cartSlice = createSlice({
     name:"cart",
     initialState,
     reducers : {
-        loadUser : (state, action) =>{
+        loadCart : (state, action) =>{
             state.carts = action.payload;
         }
     }
@@ -16,4 +16,4 @@ const cartSlice = createSlice({
 
 
 export default cartSlice.reducer;
-export const {loadUser} = cartSlice.actions ;
+export const {loadCart} = cartSlice.actions ;
