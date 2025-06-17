@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import asyncRegisterUser from '../features/actions/userAction'
-import { toast } from 'react-toastify'
 
 const Register = () => {
     const {register, reset, handleSubmit} = useForm()
@@ -15,13 +14,12 @@ const Register = () => {
  data.id = nanoid();
  console.log(data);
   dispatch(asyncRegisterUser(data))
- toast.success(`${data.username} registered successfully !`)
  reset()
     }
 
   return (
   <div className='mt-5 w-full text-center'>
-    <h1 className='text-4xl font-bold tracking-wide text-green-600 mb-10 text-center'>User Login</h1>
+    <h1 className='text-4xl font-bold tracking-wide text-green-600 mb-10 text-center'>User Registration</h1>
     <form onSubmit={handleSubmit(registerHandler)} className='flex flex-col justify-center items-center gap-6 w-1/2  py-10 mx-auto bg-red-100 rounded-xl shadow-xl'>
     <div className='flex gap-6 justify-center items-center'>
     <label className='text-xl '>Email :</label>
