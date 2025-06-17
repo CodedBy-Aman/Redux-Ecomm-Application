@@ -2,7 +2,7 @@ import axios from "../../utils/AxiosConfig";
 import { toast } from "react-toastify";
 import { loadUser } from "../slices/userSlice";
 
-export const asyncGetUsers = (user) => async(dispatch , getState) =>{
+ const asyncRegisterUser = (user) => async(dispatch , getState) =>{
 try {
     const res = await axios.post("/users", user);
    dispatch(loadUser(res.data)); // <-- update Redux state
@@ -14,3 +14,5 @@ try {
     console.error(error);
 }
 }
+
+export default asyncRegisterUser;
