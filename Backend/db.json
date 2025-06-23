@@ -1,6 +1,12 @@
 {
   "users": [
-   
+    {
+      "id": "KQwlzum8sIFAuFc8I0eWC",
+      "email": "amansg421@gmail.com",
+      "username": "amanpreet_82",
+      "password": "12345",
+      "isAdmin": false
+    }
   ],
   "products": [
     {
