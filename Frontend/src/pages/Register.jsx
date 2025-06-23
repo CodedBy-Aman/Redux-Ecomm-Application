@@ -2,19 +2,21 @@ import { nanoid } from 'nanoid'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
-import asyncRegisterUser from '../features/actions/userAction'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
+import {asyncRegisterUser} from '../features/actions/userAction'
 
 const Register = () => {
     const {register, reset, handleSubmit} = useForm()
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const registerHandler = (data) => {
  data.id = nanoid();
  data.isAdmin = false;
  console.log(data);
   dispatch(asyncRegisterUser(data))
+  navigate('/login')
  reset()
     }
 
@@ -22,10 +24,16 @@ const Register = () => {
   <div className='mt-5 w-full text-center'>
     <h1 className='text-4xl font-bold tracking-wide text-green-600 mb-10 text-center'>User Registration</h1>
     <form onSubmit={handleSubmit(registerHandler)} className='flex flex-col justify-center items-center gap-6 w-1/2  py-10 mx-auto bg-red-100 rounded-xl shadow-xl'>
+
+    
+    {/* add form validation */}
+
+
+
     <div className='flex gap-6 justify-center items-center'>
     <label className='text-xl '>Email :</label>
 <input
-{...register("email")}
+{...register("email", {required : true})}
 placeholder='enter email'
 type = "email"
 className='outline-0 border-b p-2 text-lg'
@@ -34,7 +42,7 @@ className='outline-0 border-b p-2 text-lg'
     <div className='flex gap-6 justify-center items-center'>
     <label className='text-xl '>Username :</label>
 <input
-{...register("username")}
+{...register("username", {required : true})}
 placeholder='enter username'
 type = "text"
 className='outline-0 border-b p-2 text-lg'
@@ -43,7 +51,7 @@ className='outline-0 border-b p-2 text-lg'
     <div className='flex gap-6 justify-center items-center'>
     <label className='text-xl '>Password :</label>
 <input
-{...register("password")}
+{...register("password", {required : true})}
 placeholder='enter password'
 type = "password"
 className='outline-0 border-b p-2 text-lg'
