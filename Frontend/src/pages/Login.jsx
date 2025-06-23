@@ -1,26 +1,44 @@
-import { nanoid } from 'nanoid'
+
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { asyncLoginUser, asyncLogoutUser } from '../features/actions/userAction'
+import { useSelector } from 'react-redux';
 
 const Login = () => {
     const {register, reset, handleSubmit} = useForm()
+    const dispatch = useDispatch();
+    const isLoggedIn = useSelector((state) => state.users.isLoggedIn);
 
-    const loginHandler = (data) => {
- data.id = nanoid();
- console.log(data);
+
+    const loginHandler = (userData) => {
+ dispatch(asyncLoginUser(userData))
  
  reset()
+    }
+    const logoutHandler = () => {
+ dispatch(asyncLogoutUser())
     }
 
   return (
   <div className='mt-5 w-full text-center'>
-    <h1 className='text-4xl font-bold tracking-wide text-green-600 mb-10 text-center'>User Login</h1>
+    {isLoggedIn?( 
+ <button 
+  onClick={logoutHandler} 
+  className='px-10 py-2 bg-red-500 text-white text-xl rounded-2xl hover:bg-red-600 hover:scale-105 transition duration-150 ease-in-out'
+>
+  Log out
+</button>
+ ):
+  (<>
+  <h1 className='text-4xl font-bold tracking-wide text-green-600 mb-10 text-center'>User Login</h1>
     <form onSubmit={handleSubmit(loginHandler)} className='flex flex-col gap-6 w-1/2  py-10 mx-auto bg-red-100 rounded-xl shadow-xl'>
+
     <div className='flex gap-6 justify-center items-center'>
     <label className='text-xl '>Username :</label>
 <input
-{...register("username")}
+{...register("username", {required : true})}
 placeholder='enter username'
 type = "text"
 className='outline-0 border-b p-2 text-lg'
@@ -29,9 +47,9 @@ className='outline-0 border-b p-2 text-lg'
     <div className='flex gap-6 justify-center items-center'>
     <label className='text-xl '>Password :</label>
 <input
-{...register("password")}
+{...register("password" , {required : true})}
 placeholder='enter password'
-type = "text"
+type = "password"
 className='outline-0 border-b p-2 text-lg'
 />
 </div>
@@ -40,6 +58,10 @@ className='outline-0 border-b p-2 text-lg'
 </div>
     </form>
     <p className='mt-3'>Don't have an account? <Link to={'/register'} className='text-blue-400'>Register</Link></p>
+  </>
+  )
+  }
+    
     </div>
   )
 }
