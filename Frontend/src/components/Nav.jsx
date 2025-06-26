@@ -1,9 +1,12 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { asyncLogoutUser } from '../features/actions/userAction';
 const Nav = () => {
-   const isAdmin = useSelector((state) => state.users.isAdmin);
+   const isAdmin = useSelector((state) => state.users?.currentUser?.isAdmin || false);
+
+   console.log(isAdmin);
+   
     const isLoggedIn = useSelector((state) => state.users.isLoggedIn);
 
     const dispatch = useDispatch();
