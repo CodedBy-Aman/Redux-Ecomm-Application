@@ -1,7 +1,7 @@
 import axios from "../../utils/AxiosConfig";
 import { toast } from "react-toastify";
 import { loadUser, clearUser } from "../slices/userSlice";
-import { useDispatch } from 'react-redux';
+import { Navigate } from "react-router-dom";
 
 export const asyncRegisterUser = (user) => async () => {
   try {
@@ -23,6 +23,7 @@ export const asyncLoginUser = (user) => async (dispatch) => {
     if (data && data.length > 0) {
       dispatch(loadUser(data[0])); // ✅ Correct: load the found user
       localStorage.setItem("userCredential", JSON.stringify(data[0]));
+     <Navigate to="/products" />
       toast.success("Login successful!");
       return true;
     } else {
