@@ -5,8 +5,9 @@
       "email": "amansg421@gmail.com",
       "username": "amanpreet_82",
       "password": "12345",
-      "isAdmin": false
+      "isAdmin": true
     }
+  
   ],
   "products": [
     {
