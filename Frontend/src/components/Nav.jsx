@@ -8,6 +8,7 @@ const Nav = () => {
         <NavLink to={'/products'} className={({isActive}) => isActive ?"text-blue-500 font-bold decoration underline" : "text-black"}>Products</NavLink>
         <NavLink to={'/Login'} className={({isActive}) => isActive ?"text-blue-500 font-bold decoration underline" : "text-black"}>Login</NavLink>
         <NavLink to={'/Register'} className={({isActive}) => isActive ?"text-blue-500 font-bold decoration underline" : "text-black"}>Register</NavLink>
+        <NavLink to={'/admin/create-product'} className={({isActive}) => isActive ?"text-blue-500 font-bold decoration underline" : "text-black"}>Create-Product</NavLink>
     </nav>
     </div>
   )
