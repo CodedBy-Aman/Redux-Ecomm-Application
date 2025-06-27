@@ -21,8 +21,24 @@
       "price": 22.3,
       "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
       "category": "men's clothing",
-      "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT4yH_Tv0ULb-8375_yMg9UfhyIZZ4aNXpIredvybSKozQWJf7UoOZDjzJYbHWJCFLOyBWolNB76Un_I-0ye3yMADCk5xOaZwzv3T4l9m4",
       "id": "7358"
+    },
+    {
+      "id": "ieC8AqqLLIJdEHBgXbbEy",
+      "title": "Can't Hurt Me",
+      "price": "250",
+      "description": "Be your own hero, and be uncommon in your own world. Goggins explicitly doesn't want us to be like him. He wants us to be ourselves, but the best possible version of ourselves — whatever that is. He wants us to welcome failure.",
+      "category": "books",
+      "imageUrl": "https://davidgoggins.com/wp-content/uploads/2022/10/cant-hurt-me-group.jpg"
+    },
+    {
+      "id": "Q7IDhKc7AfudhfSCo3JQo",
+      "title": "Red Tape Men's Etpu Sports Shoes",
+      "price": "600",
+      "description": "Ideal for athleisure routines, the lace-up design and round toe shape ensure a secure fit and flexibility throughout the day.",
+      "category": "others",
+      "imageUrl": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTIWaC93oDTsu_TJnrOU2oEWeKQ2bmYSEc0PYp-Y-UH6Xuyi9NZBTpqAALd8rDTWyIre_5_Neb1swut3BqZ2OZkzgVWUra-hLO2lODbFBFV6Ds5SuVgIgQInw"
     }
   ],
   "cart": []

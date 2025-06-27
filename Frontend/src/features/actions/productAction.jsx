@@ -3,9 +3,10 @@ import { toast } from "react-toastify";
 import { Navigate } from "react-router-dom";
 import { loadProduct } from "../slices/productSlice";
 
-export const asyncCreateProduct = (product) => async () => {
+export const asyncCreateProduct = (product) => async (dispatch) => {
   try {
    await axios.post("/products", product); 
+   dispatch(asyncLoadProduct());
     toast.success("Product created !");
   } catch (error) {
     toast.error(error.message || "There is some error!");
