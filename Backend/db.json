@@ -23,6 +23,17 @@
       "category": "men's clothing",
       "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
       "id": "7358"
+    },
+    {
+      "id": "c734"
+    },
+    {
+      "id": "i6n94Qa1nZ69kYYHqUAA4",
+      "title": "book",
+      "price": "200",
+      "description": "its a book",
+      "category": "books",
+      "imageUrl": "https://davidgoggins.com/wp-content/uploads/2022/10/cant-hurt-me-group.jpg"
     }
   ],
   "cart": []

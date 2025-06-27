@@ -1,14 +1,17 @@
 import { nanoid } from 'nanoid'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
+import { asyncCreateProduct } from '../features/actions/productAction'
 
 const CreateProductForm = () => {
  const {register, reset, handleSubmit} = useForm()
+ const dispatch = useDispatch()
 
 const createProductHandler = (product) =>{
   product.id = nanoid();
   console.log(product);
-  
+  dispatch(asyncCreateProduct(product))
   reset()
 }
 
