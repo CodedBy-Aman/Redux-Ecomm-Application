@@ -23,7 +23,6 @@ export const asyncLoginUser = (user) => async (dispatch) => {
     if (data && data.length > 0) {
       dispatch(loadUser(data[0])); // ✅ Correct: load the found user
       localStorage.setItem("userCredential", JSON.stringify(data[0]));
-     <Navigate to="/products" />
       toast.success("Login successful!");
       return true;
     } else {
