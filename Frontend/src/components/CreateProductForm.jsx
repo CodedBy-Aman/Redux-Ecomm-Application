@@ -3,15 +3,18 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { asyncCreateProduct } from '../features/actions/productAction'
+import { useNavigate } from 'react-router-dom'
 
 const CreateProductForm = () => {
  const {register, reset, handleSubmit} = useForm()
  const dispatch = useDispatch()
+ const navigate = useNavigate()
 
 const createProductHandler = (product) =>{
   product.id = nanoid();
   console.log(product);
   dispatch(asyncCreateProduct(product))
+  navigate("/products")
   reset()
 }
 
