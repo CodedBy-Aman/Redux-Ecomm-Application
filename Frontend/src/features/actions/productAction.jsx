@@ -14,8 +14,10 @@ export const asyncCreateProduct = (product) => async () => {
 };
 export const asyncLoadProduct = () => async (dispatch) => {
   try {
-    const { product } = await axios.get("/products"); 
-    dispatch(loadProduct(product))
+    const { data } = await axios.get("/products"); 
+    console.log(data);
+    
+    dispatch(loadProduct(data))
   } catch (error) {
     toast.error(error.message || "There is some error!");
     console.error(error);
