@@ -8,11 +8,12 @@ import { asyncLoginUser} from '../features/actions/userAction'
 const Login = () => {
     const {register, reset, handleSubmit} = useForm()
     const dispatch = useDispatch();
-
+  const navigate = useNavigate()
 
 
     const loginHandler = (userData) => {
  dispatch(asyncLoginUser(userData))
+ navigate("/products")
  reset()
     }
    
