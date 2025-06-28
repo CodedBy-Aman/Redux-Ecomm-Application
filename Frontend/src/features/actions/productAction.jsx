@@ -16,7 +16,6 @@ export const asyncCreateProduct = (product) => async (dispatch) => {
 export const asyncLoadProduct = () => async (dispatch) => {
   try {
     const { data } = await axios.get("/products"); 
-    console.log(data);
     
     dispatch(loadProduct(data))
   } catch (error) {

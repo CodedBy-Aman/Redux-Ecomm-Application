@@ -5,7 +5,6 @@ import { asyncLogoutUser } from '../features/actions/userAction';
 const Nav = () => {
    const isAdmin = useSelector((state) => state.users?.currentUser?.isAdmin || false);
 
-   console.log(isAdmin);
    
     const isLoggedIn = useSelector((state) => state.users.isLoggedIn);
 
