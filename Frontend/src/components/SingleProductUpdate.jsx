@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { asyncUpdateProduct } from '../features/actions/productAction'
 
 const SingleProductUpdate = ({product}) => {
-  const {register, reset, handleSubmit} = useForm()
+  const {register, reset, formState:{isSubmitting} , handleSubmit} = useForm()
  const dispatch = useDispatch()
   // Reset form when product is loaded/changed
   useEffect(() => {
@@ -19,8 +19,8 @@ const SingleProductUpdate = ({product}) => {
     }
   }, [product, reset]);
 
-  const updateProductHandler = (data) => {
-    dispatch(asyncUpdateProduct({ ...data, id: product.id }));
+  const updateProductHandler =async (data) => {
+   await dispatch(asyncUpdateProduct({ ...data, id: product.id }));
     // Optional: reset();
   };
 
@@ -112,6 +112,7 @@ const SingleProductUpdate = ({product}) => {
 
   {/* Submit Button */}
   <button
+  disabled ={isSubmitting}
     onClick={handleSubmit(updateProductHandler)}
     type="submit"
     className="w-full bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700"
