@@ -6,6 +6,7 @@ import Login from '../pages/Login'
 import Register from '../pages/Register'
 import CreateProduct from '../pages/admin/CreateProduct'
 import UpdateProduct from '../pages/admin/UpdateProduct'
+import ProductDetail from '../pages/ProductDetail'
 
 
 const MainRoutes = () => {
@@ -13,6 +14,7 @@ const MainRoutes = () => {
     <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/products' element={<Products/>} />
+        <Route path='/products/:id' element={<ProductDetail/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
         <Route path='/admin/create-product' element={<CreateProduct/>} />
