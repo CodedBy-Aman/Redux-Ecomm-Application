@@ -6,7 +6,7 @@ const SingleProductDetail = ({product}) => {
   }
 
   return (
-    <div className="max-w-2xl mx-auto mt-5 p-3 bg-white shadow-lg rounded-lg grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="max-w-[50vw]   mx-auto mt-5 p-3 bg-white shadow-lg rounded-lg grid grid-cols-1 md:grid-cols-2 gap-8">
       <div className="w-full h-[400px] overflow-hidden rounded-md">
   <img
     src={product.imageUrl}
