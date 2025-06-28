@@ -23,3 +23,13 @@ export const asyncLoadProduct = () => async (dispatch) => {
     console.error(error);
   }
 };
+export const asyncUpdateProduct = (product) => async (dispatch) => {
+  try {
+  await axios.patch(`/products/${product.id}`, product);
+  dispatch(asyncLoadProduct());
+    toast.success("Product updated !");
+  } catch (error) {
+    toast.error(error.message || "There is some error!");
+    console.error(error);
+  }
+};
