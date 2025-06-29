@@ -5,8 +5,8 @@ import { loadProduct } from "../slices/productSlice";
 
 export const asyncCreateProduct = (product) => async (dispatch) => {
   try {
-   await axios.post("/products", product); 
-   dispatch(asyncLoadProduct());
+    await axios.post("/products", product);
+    dispatch(asyncLoadProduct());
     toast.success("Product created !");
   } catch (error) {
     toast.error(error.message || "Failed to create product.");
@@ -15,9 +15,9 @@ export const asyncCreateProduct = (product) => async (dispatch) => {
 };
 export const asyncLoadProduct = () => async (dispatch) => {
   try {
-    const { data } = await axios.get("/products"); 
-    
-    dispatch(loadProduct(data))
+    const { data } = await axios.get("/products");
+
+    dispatch(loadProduct(data));
   } catch (error) {
     toast.error(error.message || "Failed to load product.");
     console.error(error);
@@ -25,8 +25,8 @@ export const asyncLoadProduct = () => async (dispatch) => {
 };
 export const asyncUpdateProduct = (product) => async (dispatch) => {
   try {
-  await axios.patch(`/products/${product.id}`, product);
-  dispatch(asyncLoadProduct());
+    await axios.patch(`/products/${product.id}`, product);
+    dispatch(asyncLoadProduct());
     toast.success("Product updated !");
   } catch (error) {
     toast.error(error.message || "Failed to update product.");
@@ -35,8 +35,8 @@ export const asyncUpdateProduct = (product) => async (dispatch) => {
 };
 export const asyncDeleteProduct = (id) => async (dispatch) => {
   try {
-  await axios.delete(`/products/${id}`);
-  dispatch(asyncLoadProduct());
+    await axios.delete(`/products/${id}`);
+    dispatch(asyncLoadProduct());
     toast.success("Product deleted !");
     return true;
   } catch (error) {

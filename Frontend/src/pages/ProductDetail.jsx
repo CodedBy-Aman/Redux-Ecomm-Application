@@ -14,7 +14,6 @@ const ProductDetail = () => {
   const selectedProduct = products?.find((product) => product.id === id);
   console.log(selectedProduct);
 
-   
   return (
     <div className="w-screen p-4 flex justify-between gap-5">
       <SingleProductDetail product={selectedProduct} />

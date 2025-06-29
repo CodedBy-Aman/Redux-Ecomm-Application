@@ -5,7 +5,7 @@ import { Navigate } from "react-router-dom";
 
 export const asyncRegisterUser = (user) => async () => {
   try {
-    const { data } = await axios.post("/users", user); 
+    const { data } = await axios.post("/users", user);
     toast.success("User registered successfully!");
     console.log(data);
   } catch (error) {
@@ -18,7 +18,7 @@ export const asyncLoginUser = (user) => async (dispatch) => {
     const { data } = await axios.get(
       `/users?username=${user.username}&password=${user.password}`
     );
-    
+
     if (data && data.length > 0) {
       dispatch(loadUser(data[0])); // ✅ Correct: load the found user
       localStorage.setItem("userCredential", JSON.stringify(data[0]));
@@ -53,8 +53,8 @@ export const asyncGetCurrentUser = () => async (dispatch) => {
 
 export const asyncUpdateUser = (user) => async (dispatch) => {
   try {
-  const { data } = await axios.patch(`/users/${user.id}`, user);
-  dispatch(asyncLoginUser(data)); 
+    const { data } = await axios.patch(`/users/${user.id}`, user);
+    dispatch(asyncLoginUser(data));
   } catch (error) {
     toast.error(error.message || "Failed to update user.");
     console.error(error);
@@ -62,8 +62,8 @@ export const asyncUpdateUser = (user) => async (dispatch) => {
 };
 export const asyncDeleteUser = (id) => async (dispatch) => {
   try {
-  await axios.delete(`/users/${id}`);
-  dispatch(asyncLogoutUser());
+    await axios.delete(`/users/${id}`);
+    dispatch(asyncLogoutUser());
     return true;
   } catch (error) {
     toast.error(error.message || "Failed to delete product.");

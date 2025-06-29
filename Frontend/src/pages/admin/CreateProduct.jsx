@@ -1,11 +1,12 @@
-import React from 'react'
-import CreateProductForm from '../../components/CreateProductForm'
+import React from "react";
+import CreateProductForm from "../../components/CreateProductForm";
 
 const CreateProduct = () => {
-  return (<>
-    <CreateProductForm />
+  return (
+    <>
+      <CreateProductForm />
     </>
-  )
-}
+  );
+};
 
-export default CreateProduct
+export default CreateProduct;

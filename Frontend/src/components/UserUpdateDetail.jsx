@@ -32,36 +32,32 @@ const UserUpdateDetail = () => {
     }
   }, [user, reset]);
 
- const updateUserHandler = async (data) => {
-  const { id, isAdmin, ...userDataToCompare } = user;
+  const updateUserHandler = async (data) => {
+    const { id, isAdmin, ...userDataToCompare } = user;
 
-  const hasChanged = Object.keys(data).some(
-    (key) => data[key]?.trim() !== userDataToCompare[key]?.trim()
-  );
+    const hasChanged = Object.keys(data).some(
+      (key) => data[key]?.trim() !== userDataToCompare[key]?.trim()
+    );
 
-  if (hasChanged) {
-    await dispatch(asyncUpdateUser({ ...data, id }));
-    toast.success("Profile updated!");
-    
-  } else {
-    toast.error("No change detected");
-  }
-};
+    if (hasChanged) {
+      await dispatch(asyncUpdateUser({ ...data, id }));
+      toast.success("Profile updated!");
+    } else {
+      toast.error("No change detected");
+    }
+  };
 
-
-const logOutHandler =async ()=>{
-   await dispatch(asyncLogoutUser());
-   navigate("/login");
-}
+  const logOutHandler = async () => {
+    await dispatch(asyncLogoutUser());
+    navigate("/login");
+  };
   const handleDelete = async (id) => {
-
     if (window.confirm("Are you sure you want to delete the user?")) {
       const deleted = await dispatch(asyncDeleteUser(id));
       if (deleted) Navigate("/login");
     }
   };
 
-  
   return (
     <form className="w-[50vw] mx-auto p-6 bg-white rounded-2xl shadow-md space-y-4">
       <h2 className="text-2xl font-semibold text-center">Update Product</h2>
@@ -145,7 +141,7 @@ const logOutHandler =async ()=>{
           Update
         </button>
         <button
-        type="button"
+          type="button"
           disabled={isSubmitting}
           onClick={() => logOutHandler()}
           className="w-full bg-green-600 text-white p-2 rounded-lg hover:bg-green-700"
