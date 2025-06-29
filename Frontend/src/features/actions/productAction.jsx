@@ -9,7 +9,7 @@ export const asyncCreateProduct = (product) => async (dispatch) => {
    dispatch(asyncLoadProduct());
     toast.success("Product created !");
   } catch (error) {
-    toast.error(error.message || "There is some error!");
+    toast.error(error.message || "Failed to create product.");
     console.error(error);
   }
 };
@@ -19,7 +19,7 @@ export const asyncLoadProduct = () => async (dispatch) => {
     
     dispatch(loadProduct(data))
   } catch (error) {
-    toast.error(error.message || "There is some error!");
+    toast.error(error.message || "Failed to load product.");
     console.error(error);
   }
 };
@@ -29,7 +29,19 @@ export const asyncUpdateProduct = (product) => async (dispatch) => {
   dispatch(asyncLoadProduct());
     toast.success("Product updated !");
   } catch (error) {
-    toast.error(error.message || "There is some error!");
+    toast.error(error.message || "Failed to update product.");
     console.error(error);
+  }
+};
+export const asyncDeleteProduct = (id) => async (dispatch) => {
+  try {
+  await axios.delete(`/products/${id}`);
+  dispatch(asyncLoadProduct());
+    toast.success("Product deleted !");
+    return true;
+  } catch (error) {
+    toast.error(error.message || "Failed to delete product.");
+    console.error(error);
+    return false;
   }
 };
