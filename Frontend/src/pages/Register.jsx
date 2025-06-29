@@ -13,8 +13,8 @@ const Register = () => {
 
     const registerHandler = (data) => {
  data.id = nanoid();
+ data.profileUrl = "https://img.freepik.com/premium-vector/vector-flat-illustration-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-profile-picture-suitable-social-media-profiles-icons-screensavers-as-templatex9xa_719432-2210.jpg?semt=ais_items_boosted&w=740";
  data.isAdmin = false;
- console.log(data);
   dispatch(asyncRegisterUser(data))
   navigate('/login')
  reset()
