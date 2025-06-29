@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-import { asyncUpdateProduct } from '../features/actions/productAction'
+import { asyncDeleteProduct, asyncUpdateProduct } from '../features/actions/productAction'
+import { useNavigate } from 'react-router-dom'
 
 const SingleProductUpdate = ({product}) => {
   const {register, reset, formState:{isSubmitting} , handleSubmit} = useForm()
  const dispatch = useDispatch()
+ const Navigate = useNavigate()
   // Reset form when product is loaded/changed
   useEffect(() => {
     if (product) {
@@ -21,7 +23,14 @@ const SingleProductUpdate = ({product}) => {
 
   const updateProductHandler =async (data) => {
    await dispatch(asyncUpdateProduct({ ...data, id: product.id }));
-    // Optional: reset();
+  };
+  const handleDelete =async (id) => {
+    console.log(id);
+    
+    if(window.confirm("Are you sure you want to delete the product?")){
+  const deleted = await dispatch(asyncDeleteProduct(id ));
+   if(deleted) Navigate("/products");
+    }
   };
 
 
@@ -111,14 +120,26 @@ const SingleProductUpdate = ({product}) => {
   </div>
 
   {/* Submit Button */}
+ <div className="flex justify-between gap-4">
+  {/* Update Button */}
   <button
-  disabled ={isSubmitting}
+    disabled={isSubmitting}
     onClick={handleSubmit(updateProductHandler)}
     type="submit"
     className="w-full bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700"
   >
     Update
   </button>
+
+  {/* Delete Button */}
+  <button
+    type="button"
+    onClick={() => handleDelete(product.id)}
+    className="w-full bg-red-600 text-white p-2 rounded-lg hover:bg-red-700"
+  >
+    Delete
+  </button>
+</div>
 </form>
 
   )
