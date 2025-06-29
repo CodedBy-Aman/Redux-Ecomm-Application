@@ -21,7 +21,7 @@ const Nav = () => {
         >
           Products
         </NavLink>
-        {isAdmin && (
+        {isAdmin && (<>
           <NavLink
             to={"/admin/create-product"}
             className={({ isActive }) =>
@@ -32,9 +32,19 @@ const Nav = () => {
           >
             Create-Product
           </NavLink>
+          <NavLink
+            to={"/admin/profile"}
+            className={({ isActive }) =>
+              isActive
+                ? "text-blue-500 font-bold decoration underline"
+                : "text-black"
+            }
+          >
+            Admin-Panel
+          </NavLink>
+          </>
         )}
-        {isLoggedIn ? (
-          <>
+        {isLoggedIn && !isAdmin && 
             <NavLink
               to={"/user-profile"}
               className={({ isActive }) =>
@@ -45,10 +55,9 @@ const Nav = () => {
             >
               Profile
             </NavLink>
-          </>
-        ) : (
-          <>
-            <NavLink
+}
+         {!isLoggedIn && <>
+         <NavLink
               to={"/Login"}
               className={({ isActive }) =>
                 isActive
@@ -68,8 +77,8 @@ const Nav = () => {
             >
               Register
             </NavLink>
-          </>
-        )}
+         </>
+         }
       </nav>
     </div>
   );

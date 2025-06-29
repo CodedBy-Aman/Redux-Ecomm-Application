@@ -49,6 +49,14 @@ const MainRoutes = () => {
           </AdminWrapper>
         }
       />
+      <Route
+        path="/admin/profile"
+        element={
+          <AdminWrapper>
+            <UserProfile />
+          </AdminWrapper>
+        }
+      />
     </Routes>
   );
 };

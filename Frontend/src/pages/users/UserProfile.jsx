@@ -14,10 +14,14 @@ const UserProfile = () => {
     );
   }
   return (
-    <div className="w-screen p-4 flex justify-between gap-5">
-      <UserReadDetail />
-      <UserUpdateDetail />
-    </div>
+  <div className="w-screen p-4 flex gap-5">
+    <UserReadDetail />
+
+  {/* Vertical Divider */}
+  <div className="w-px bg-gray-400" />
+
+    <UserUpdateDetail />
+</div>
   );
 };
 

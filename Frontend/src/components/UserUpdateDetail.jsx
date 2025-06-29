@@ -60,7 +60,7 @@ const UserUpdateDetail = () => {
 
   return (
     <form className="w-[50vw] mx-auto p-6 bg-white rounded-2xl shadow-md space-y-4">
-      <h2 className="text-2xl font-semibold text-center">Update Product</h2>
+      <h1 className="text-2xl font-semibold text-center decoration underline">Update Product</h1>
 
       {/* Image URL */}
       <div>

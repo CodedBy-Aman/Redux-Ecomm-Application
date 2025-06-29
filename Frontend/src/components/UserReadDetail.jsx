@@ -6,6 +6,9 @@ const UserReadDetail = () => {
 
   return (
     <div className="max-w-[50vw]   mx-auto mt-5 p-3 bg-white shadow-lg rounded-lg flex flex-col gap-8">
+        <h1 className="text-2xl font-semibold text-center decoration underline">
+            User-Profile
+        </h1>
       <div className="w-full  overflow-hidden rounded-md">
         <img
           src={user.profileUrl}
