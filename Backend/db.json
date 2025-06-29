@@ -8,22 +8,15 @@
       "isAdmin": true
     },
     {
-      "id": "dn15yOhtYBbyyp3NeweXe",
+      "id": "-3eQZN67_rJHtMFCA9LiT",
       "email": "jatinkumar82126@gmail.com",
       "username": "jatin_42",
-      "password": "123456",
+      "password": "1234",
+      "profileUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZwHKi5Mkp--rFkbc-1gdDCYY5Ov9UJcMkHQ&s",
       "isAdmin": false
     }
   ],
   "products": [
-    {
-      "title": "Mens Casual Premium Slim Fit T-Shirts ",
-      "price": 22.3,
-      "description": "Slim-fitting style,light weight & soft fabric for breathable and comfortable wearing.",
-      "category": "clothing",
-      "imageUrl": "https://m.media-amazon.com/images/I/51OXTHA5syL._SY879_.jpg",
-      "id": "7358"
-    },
     {
       "id": "ieC8AqqLLIJdEHBgXbbEy",
       "title": "Can't Hurt Me",
